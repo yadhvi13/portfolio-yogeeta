@@ -35,10 +35,8 @@ import spotify from './assets/work_logo/spotify.png';
 import caretooth from './assets/work_logo/CareTooth.png';
 import task from './assets/work_logo/task.png';
 import codehelp from './assets/work_logo/codehelp.png';
-import webverLogo from './assets/work_logo/web_dig.png';
-import cmLogo from './assets/work_logo/cm.png';
-import imagesearchLogo from './assets/work_logo/image_search.png';
-import removebgLogo from './assets/work_logo/remove_bg.png';
+import portfolio from './assets/work_logo/portfolio.png';
+
 
 
 export const SkillsInfo = [
@@ -208,11 +206,11 @@ export const SkillsInfo = [
       id: 4,
       title: "Personal Portfolio",
       description:
-        "UI Clone of CodeHelp platform by Love Babbar using pure HTML, CSS, and JavaScript, focusing strongly on UI/UX precision and smooth animations. Recreated the dark-themed interface, navigation flow, hero section, and course showcase to closely resemble the original platform.Ensured responsive design, clean layouts, and fast performance without using any frameworks, demonstrating strong fundamentals in frontend development and motion-driven UI design.",
-      image: codehelp,
+        "Developed a responsive and interactive portfolio using React.js, Tailwind CSS, and GSAP, implementing smooth animations and modern glassmorphism design to enhance user experience and visual appeal.The project highlights my passion for creating high-quality web interfaces and dynamic user experiences using modern front-end technologies.",
+      image: portfolio ,
       tags: ["React JS", "GSAP", "TailwindCSS", "Animation"],
-      github: "https://github.com/yadhvi13/CodeHelp-2.0",
-      webapp: "https://code-help-2-0.vercel.app/",
+      github: "https://github.com/yadhvi13/portfolio-yogeeta",
+      webapp: "https://portfolio-yogeeta.vercel.app/",
     },
     {
       id: 5,

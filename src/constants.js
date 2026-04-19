@@ -30,12 +30,13 @@ import college from './assets/education_logo/college.png';
 import school from './assets/education_logo/school.jpg';
 
 // Project Section Logo's
-import studyway from './assets/work_logo/studyway.png';
+// import studyway from './assets/work_logo/studyway.png';
 import spotify from './assets/work_logo/spotify.png';
 import caretooth from './assets/work_logo/CareTooth.png';
 import netflix from './assets/work_logo/netflix.png';
 import codehelp from './assets/work_logo/codehelp.png';
 import portfolio from './assets/work_logo/portfolio.png';
+import food from './assets/work_logo/food.png';
 
 
 
@@ -213,23 +214,13 @@ export const SkillsInfo = [
       webapp: "https://portfolio-yogeeta.vercel.app/",
     },
     {
-      id: 5,
-      title: "Study Way - UI/UX Design",
+      id: 6,
+      title: "Real Time Food Delivery App",
       description:
         "Designed and developed a modern, user-friendly educational website focused on seamless learning experiences using HTML, CSS, and Vanilla JavaScript. Built an intuitive and responsive UI with clear visual hierarchy, smooth navigation, and engaging layouts to enhance usability for learners of all ages. Emphasized simplicity, accessibility, and performance by avoiding heavy frameworks while delivering a polished, professional interface aligned with modern UI/UX principles.",
-      image: studyway,
-      tags: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/yadhvi13/StudyWay",
-      webapp: "https://study-way.vercel.app/",
+      image: food,
+      tags: ["React JS", "Tailwind CSS", "Node JS", "Express JS", "MongoDB"],
+      github: "https://github.com/yadhvi13/RealTimeFoodDelivery",
+      webapp: "https://real-time-food-delivery-six.vercel.app/",
     },
-    // {
-    //   id: 5,
-    //   title: "Task Manager",
-    //   description:
-    //     "Simple yet premium task manager built using React. It allows users to easily create, add, and delete tasks through a smooth and intuitive interface. Designed UI with both dark and light themes, giving users the flexibility to switch based on their preference. Clean layouts, subtle animations to an enjoyable task management experience without unnecessary complexity.",
-    //   image: task,
-    //   tags: ["JavaScript", "HTML", "CSS"],
-    //   github: "https://github.com/yadhvi13/Task-Manager",
-    //   webapp: "https://task-manager-git-main-yogeetas-projects.vercel.app/",
-    // },
   ];  

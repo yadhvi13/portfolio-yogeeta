@@ -217,7 +217,7 @@ export const SkillsInfo = [
       id: 6,
       title: "Real Time Food Delivery App",
       description:
-        "Designed and developed a modern, user-friendly educational website focused on seamless learning experiences using HTML, CSS, and Vanilla JavaScript. Built an intuitive and responsive UI with clear visual hierarchy, smooth navigation, and engaging layouts to enhance usability for learners of all ages. Emphasized simplicity, accessibility, and performance by avoiding heavy frameworks while delivering a polished, professional interface aligned with modern UI/UX principles.",
+        "Built a full-stack food delivery web app with a modern, responsive UI and real-time order tracking. Implemented features like user authentication, dynamic menu browsing, cart management, and secure checkout. Integrated Socket.io for live tracking updates (ETA, order status, rider movement) and optimized backend performance with MongoDB indexing. Focused on clean UI/UX, smooth animations, and cross-device responsiveness for a seamless user experience.",
       image: food,
       tags: ["React JS", "Tailwind CSS", "Node JS", "Express JS", "MongoDB"],
       github: "https://github.com/yadhvi13/RealTimeFoodDelivery",

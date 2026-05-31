@@ -181,7 +181,7 @@ export const SkillsInfo = [
       image: spotify,
       tags: ["React JS", "Node.js", "MongoDB", "Express", "tailwind CSS", "TypeScript"],
       github: "https://github.com/yadhvi13/Spotify-UI-Clone",
-      webapp: "https://spotify-ui-clone-ngs9.onrender.com/",
+      webapp: "https://spotify-ui-clone-dm73.vercel.app/",
     },
     {
       id: 2,

@@ -16,7 +16,7 @@ const Experience = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2
         w-[600px] md:w-[900px]
         h-[400px] md:h-[500px]
-        bg-purple-600/20 blur-[160px]"
+        bg-orange-600/20 blur-[160px]"
       />
 
       {/* Header */}
@@ -44,7 +44,7 @@ const Experience = () => {
           left-6 md:left-1/2
           w-[2px]
           -translate-x-1/2
-          bg-gradient-to-b from-purple-500/0 via-purple-400 to-purple-500/0"
+          bg-gradient-to-b from-orange-500/0 via-orange-500 to-orange-500/0"
         />
 
         {experiences.map((exp, index) => (
@@ -68,7 +68,7 @@ const Experience = () => {
               rounded-full
               bg-white/10 backdrop-blur-xl
               border border-white/30
-              shadow-[0_0_30px_rgba(168,85,247,0.6)]
+              shadow-[0_0_30px_rgba(249,115,22,0.6)]
               flex items-center justify-center z-20"
             >
               <img
@@ -90,7 +90,7 @@ const Experience = () => {
                 rounded-3xl
                 bg-white/10 backdrop-blur-2xl
                 border border-white/20
-                shadow-[0_30px_80px_-15px_rgba(168,85,247,0.5)]
+                shadow-[0_30px_80px_-15px_rgba(239,68,68,0.5)]
                 ${
                   index % 2 === 0
                     ? "md:ml-[52%]"
@@ -100,7 +100,7 @@ const Experience = () => {
             >
               {/* Gradient hover */}
               <div className="absolute inset-0 rounded-3xl
-                bg-gradient-to-r from-purple-500/20 to-pink-500/20
+                bg-gradient-to-r from-orange-500/20 to-red-500/20
                 opacity-0 hover:opacity-100 transition duration-700 blur-xl"
               />
 

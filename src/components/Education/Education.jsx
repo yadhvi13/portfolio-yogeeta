@@ -17,7 +17,7 @@ const Education = () => {
         className="absolute top-0 left-1/2 -translate-x-1/2
         w-[600px] md:w-[900px]
         h-[400px] md:h-[500px]
-        bg-indigo-600/20 blur-[160px]"
+        bg-orange-600/20 blur-[160px]"
       />
 
       {/* Header */}
@@ -45,7 +45,7 @@ const Education = () => {
           left-6 md:left-1/2
           -translate-x-1/2
           w-[2px]
-          bg-gradient-to-b from-indigo-500/0 via-indigo-400 to-indigo-500/0"
+          bg-gradient-to-b from-orange-500/0 via-orange-500 to-orange-500/0"
         />
 
         {education.map((edu, index) => (
@@ -69,7 +69,7 @@ const Education = () => {
               rounded-full
               bg-white/10 backdrop-blur-xl
               border border-white/30
-              shadow-[0_0_30px_rgba(99,102,241,0.6)]
+              shadow-[0_0_30px_rgba(249,115,22,0.6)]
               flex items-center justify-center z-20"
             >
               <img
@@ -91,7 +91,7 @@ const Education = () => {
                 rounded-3xl
                 bg-white/10 backdrop-blur-2xl
                 border border-white/20
-                shadow-[0_30px_80px_-15px_rgba(99,102,241,0.5)]
+                shadow-[0_30px_80px_-15px_rgba(239,68,68,0.5)]
                 ${
                   index % 2 === 0
                     ? "md:ml-[52%]"
@@ -102,7 +102,7 @@ const Education = () => {
               {/* Hover gradient */}
               <div
                 className="absolute inset-0 rounded-3xl
-                bg-gradient-to-r from-indigo-500/20 to-purple-500/20
+                bg-gradient-to-r from-orange-500/20 to-red-500/20
                 opacity-0 hover:opacity-100 transition duration-700 blur-xl"
               />
 
@@ -133,7 +133,7 @@ const Education = () => {
               <div
                 className="inline-block mb-4 px-4 py-1 rounded-full
                 bg-white/10 border border-white/20
-                text-indigo-300 text-xs md:text-sm font-medium"
+                text-orange-300 text-xs md:text-sm font-medium"
               >
                 Grade: {edu.grade}
               </div>

@@ -11,8 +11,18 @@ import BlurBlob from './components/BlurBlob';
 import CustomCursor from "./components/CustomCursor";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    // Record visit analytics
+    fetch("http://localhost:5000/api/analytics/visit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: window.location.pathname }),
+    }).catch(err => console.error("Analytics error:", err));
+  }, []);
+
   const { scrollYProgress } = useScroll();
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);

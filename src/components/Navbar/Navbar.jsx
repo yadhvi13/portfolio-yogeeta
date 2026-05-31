@@ -61,7 +61,7 @@ const Navbar = () => {
       <motion.div
         style={{ scaleX: scrollYProgress }}
         className="fixed top-0 left-0 right-0 h-[2px]
-        bg-gradient-to-r from-purple-400 to-pink-500
+        bg-gradient-to-r from-orange-500 to-yellow-400
         z-[60] origin-left"
       />
 
@@ -81,11 +81,11 @@ const Navbar = () => {
             onClick={clickSound}
             className="text-lg font-semibold cursor-pointer"
           >
-            <span className="text-[#8245ec]">&lt;</span>
+            <span className="text-orange-500">&lt;</span>
             Yogeeta
-            <span className="text-[#8245ec]">/</span>
+            <span className="text-orange-500">/</span>
             Developer
-            <span className="text-[#8245ec]">&gt;</span>
+            <span className="text-orange-500">&gt;</span>
           </div>
 
           {/* DESKTOP MENU */}
@@ -101,7 +101,7 @@ const Navbar = () => {
 
                 {activeSection === item.id && (
                   <span className="absolute left-0 -bottom-2 h-[2px] w-full
-                  bg-gradient-to-r from-purple-400 to-pink-500 rounded-full" />
+                  bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full" />
                 )}
               </li>
             ))}
@@ -113,7 +113,7 @@ const Navbar = () => {
               href="https://github.com/yadhvi13"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-[#8245ec]"
+              className="hover:text-orange-500"
             >
               <FaGithub size={22} />
             </a>
@@ -121,7 +121,7 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/yogeeta-752388331/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-[#8245ec]"
+              className="hover:text-orange-500"
             >
               <FaLinkedin size={22} />
             </a>
@@ -134,7 +134,7 @@ const Navbar = () => {
                 clickSound();
                 setIsOpen(!isOpen);
               }}
-              className="text-[#8245ec]"
+              className="text-orange-500"
             >
               {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
             </button>

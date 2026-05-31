@@ -47,11 +47,11 @@ const CustomCursor = () => {
       }}
       animate={{
         scale: isHovering ? 2 : 1,
-        backgroundColor: isHovering ? "rgba(236, 72, 153, 0.2)" : "rgba(168, 85, 247, 0.3)",
-        border: isHovering ? "1px solid rgba(236, 72, 153, 0.8)" : "1px solid rgba(168, 85, 247, 0.5)",
+        backgroundColor: isHovering ? "rgba(239, 68, 68, 0.2)" : "rgba(249, 115, 22, 0.3)",
+        border: isHovering ? "1px solid rgba(239, 68, 68, 0.8)" : "1px solid rgba(249, 115, 22, 0.5)",
         boxShadow: isHovering
-          ? "0 0 30px 5px rgba(236, 72, 153, 0.5)"
-          : "0 0 15px 2px rgba(168, 85, 247, 0.5)",
+          ? "0 0 30px 5px rgba(239, 68, 68, 0.5)"
+          : "0 0 15px 2px rgba(249, 115, 22, 0.5)",
       }}
       transition={{ type: "tween", duration: 0.15 }}
     >

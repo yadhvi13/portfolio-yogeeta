@@ -29,7 +29,7 @@ const ProjectCard = ({ project, index, setActiveProject }) => {
       <div
         className="pointer-events-none absolute -inset-8 rounded-[3rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x + 32}px ${mousePosition.y + 32}px, rgba(236,72,153,0.15), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${mousePosition.x + 32}px ${mousePosition.y + 32}px, rgba(249,115,22,0.15), transparent 40%)`,
         }}
       />
 
@@ -40,7 +40,7 @@ const ProjectCard = ({ project, index, setActiveProject }) => {
           className="relative cursor-pointer rounded-3xl overflow-hidden
           bg-white/10 backdrop-blur-xl
           border border-white/20
-          shadow-[0_30px_90px_-20px_rgba(168,85,247,0.55)]"
+          shadow-[0_30px_90px_-20px_rgba(239,68,68,0.55)]"
         >
           <img
             src={project.image}
@@ -94,8 +94,8 @@ const ProjectCard = ({ project, index, setActiveProject }) => {
             text-white font-bold overflow-hidden group/btn cursor-none"
           >
             <span className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:200%_0,0_0] bg-no-repeat transition-all duration-1000 group-hover/btn:bg-[position:-100%_0,0_0] z-20 mix-blend-overlay pointer-events-none" />
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 blur-md opacity-80 group-hover/btn:opacity-100 animate-pulse transition-opacity duration-300" />
-            <span className="relative z-10 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_0_20px_rgba(236,72,153,0.5)] group-hover/btn:shadow-[0_0_30px_rgba(236,72,153,0.9)] transition-all duration-300">
+            <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 blur-md opacity-80 group-hover/btn:opacity-100 animate-pulse transition-opacity duration-300" />
+            <span className="relative z-10 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_0_20px_rgba(249,115,22,0.5)] group-hover/btn:shadow-[0_0_30px_rgba(249,115,22,0.9)] transition-all duration-300">
               View Live
             </span>
           </motion.a>
@@ -114,7 +114,7 @@ const Work = () => {
       className="relative py-32 px-4 sm:px-8 md:px-[7vw] lg:px-[12vw]"
     >
       {/* Soft ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-600/20 blur-[160px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-orange-600/20 blur-[160px]" />
 
       {/* HEADER */}
       <motion.div
@@ -159,7 +159,7 @@ const Work = () => {
               className="max-w-4xl w-full rounded-3xl
               bg-white/10 backdrop-blur-2xl
               border border-white/20
-              shadow-[0_40px_120px_-20px_rgba(168,85,247,0.7)]
+              shadow-[0_40px_120px_-20px_rgba(239,68,68,0.7)]
               p-8"
             >
               <button

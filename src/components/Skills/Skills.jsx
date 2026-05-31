@@ -36,24 +36,24 @@ const SkillCard = ({ category, index }) => {
       className="w-full sm:w-[48%]"
       onMouseMove={handleMouseMove}
     >
-      <Tilt tiltMaxAngleX={18} tiltMaxAngleY={18} scale={1.05}>
+          <Tilt tiltMaxAngleX={18} tiltMaxAngleY={18} scale={1.05}>
         <div
           className="relative p-8 rounded-3xl border border-white/20
           bg-white/10 backdrop-blur-xl
-          shadow-[0_20px_60px_-10px_rgba(130,69,236,0.45)]
-          hover:shadow-[0_25px_80px_-10px_rgba(168,85,247,0.65)]
+          shadow-[0_20px_60px_-10px_rgba(249,115,22,0.45)]
+          hover:shadow-[0_25px_80px_-10px_rgba(239,68,68,0.65)]
           transition-all duration-500 group overflow-hidden"
         >
           {/* Spotlight Glow */}
           <div
             className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0 mix-blend-overlay"
             style={{
-              background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(236,72,153,0.2), transparent 40%)`,
+              background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(249,115,22,0.2), transparent 40%)`,
             }}
           />
 
           {/* Animated Border Glow */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
           <h3 className="text-2xl sm:text-3xl font-bold text-center text-white mb-8 relative z-10">
             {category.title}
@@ -70,7 +70,7 @@ const SkillCard = ({ category, index }) => {
                 rounded-full px-4 py-2
                 bg-white/10 backdrop-blur-md
                 border border-white/20
-                hover:border-purple-400/60
+                hover:border-orange-400/60
                 hover:bg-white/20
                 transition-all duration-300 cursor-none"
               >
@@ -94,11 +94,10 @@ const SkillCard = ({ category, index }) => {
 const Skills = () => (
   <section
     id="skills"
-    className="relative py-24 px-4 sm:px-8 md:px-[7vw] lg:px-[18vw] font-sans 
-    bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] overflow-hidden"
+    className="relative py-24 px-4 sm:px-8 md:px-[7vw] lg:px-[18vw] font-sans overflow-hidden"
   >
     {/* Background Glow */}
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#8245ec33,transparent_60%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.2),transparent_60%)]" />
 
     {/* Section Header */}
     <motion.div
@@ -110,7 +109,7 @@ const Skills = () => (
       <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-wide">
         SKILLS
       </h2>
-      <div className="w-28 h-[3px] bg-gradient-to-r from-purple-400 to-pink-500 mx-auto mt-3 rounded-full" />
+      <div className="w-28 h-[3px] bg-gradient-to-r from-orange-500 to-red-500 mx-auto mt-3 rounded-full" />
       <p className="text-gray-300 mt-5 text-lg max-w-2xl mx-auto">
         A curated collection of technologies I use to craft modern, scalable, and visually stunning applications
       </p>

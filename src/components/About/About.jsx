@@ -68,7 +68,7 @@ const About = () => {
             className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6"
           >
             <span className="text-white">I am a </span>
-            <span className="text-[#8245ec]">
+            <span className="text-orange-500">
               <ReactTypingEffect
                 text={[
                   "Fullstack Developer",
@@ -128,7 +128,7 @@ const About = () => {
         >
           {/* Aura ring */}
           <div className="absolute w-[22rem] h-[22rem] md:w-[34rem] md:h-[34rem]
-            rounded-full bg-purple-600/20 blur-[120px]" />
+            rounded-full bg-orange-600/20 blur-[120px]" />
 
           <Tilt
             tiltMaxAngleX={18}
@@ -137,13 +137,13 @@ const About = () => {
             transitionSpeed={1000}
             gyroscope
             className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[30rem] md:h-[30rem]
-            rounded-full border-4 border-purple-600"
+            rounded-full border-4 border-orange-600"
           >
             <img
               src={profileImage}
               alt="Yogeeta"
               className="w-full h-full rounded-full object-cover
-              shadow-[0_20px_50px_rgba(130,69,236,0.6)]"
+              shadow-[0_20px_50px_rgba(249,115,22,0.6)]"
             />
           </Tilt>
         </motion.div>

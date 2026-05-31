@@ -1,6 +1,5 @@
 
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,28 +8,39 @@ const Contact = () => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    emailjs
-      .sendForm(
-        "service_axbtt7a",
-        "template_1ziboq3",
-        form.current,
-        "Rz7W9pVF0HdDryNNL"
-      )
-      .then(
-        () => {
-          setIsSending(false);
-          form.current.reset();
-          toast.success("Message sent successfully ✨", { theme: "dark" });
+    const formData = new FormData(form.current);
+    const data = {
+      user_name: formData.get("user_name"),
+      user_email: formData.get("user_email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        () => {
-          setIsSending(false);
-          toast.error("Something went wrong. Try again!", { theme: "dark" });
-        }
-      );
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully ✨", { theme: "dark" });
+        form.current.reset();
+      } else {
+        toast.error("Something went wrong. Try again!", { theme: "dark" });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to connect to server.", { theme: "dark" });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -45,8 +55,8 @@ const Contact = () => {
   transition-opacity duration-700"
 >
       {/* 🌈 FLOATING GLOW ORBS */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[140px]" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-500/25 rounded-full blur-[140px]" />
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-orange-600/30 rounded-full blur-[140px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-500/25 rounded-full blur-[140px]" />
 </div>
       {/* HEADER */}
       <motion.div
@@ -75,11 +85,11 @@ const Contact = () => {
           className="relative rounded-3xl p-8
           bg-white/10 backdrop-blur-2xl
           border border-white/20
-          shadow-[0_30px_80px_-15px_rgba(168,85,247,0.6)]"
+          shadow-[0_30px_80px_-15px_rgba(239,68,68,0.6)]"
         >
           {/* Animated border glow */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl
-    bg-gradient-to-r from-purple-500/30 to-pink-500/30
+    bg-gradient-to-r from-orange-500/30 to-red-500/30
     opacity-0 group-hover:opacity-100
     transition duration-700 blur-xl" />
 
@@ -109,7 +119,7 @@ const Contact = () => {
                 required
                 className="w-full rounded-xl px-4 py-3 bg-white/5
                 border border-white/20 text-white
-                focus:outline-none focus:border-purple-400
+                focus:outline-none focus:border-orange-400
                 focus:bg-white/10 transition"
               />
             ))}
@@ -122,7 +132,7 @@ const Contact = () => {
               required
               className="rounded-xl px-4 py-3 bg-white/5
               border border-white/20 text-white
-              focus:outline-none focus:border-purple-400
+              focus:outline-none focus:border-orange-400
               focus:bg-white/10 transition"
             />
 
@@ -132,7 +142,7 @@ const Contact = () => {
               whileTap={{ scale: 0.95 }}
               disabled={isSending}
               className="relative overflow-hidden mt-4 rounded-xl py-3
-              bg-gradient-to-r from-purple-600 to-pink-500
+              bg-gradient-to-r from-orange-500 to-red-500
               font-semibold text-white"
             >
               <span className="relative z-10">

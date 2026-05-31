@@ -25,21 +25,39 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1"
           >
             Hi, I am
+            Yogeeta
           </motion.h1>
 
           {/* Name */}
           <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.35 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6
-            text-transparent bg-clip-text
-            bg-gradient-to-r from-white via-purple-300 to-white"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 flex
+            text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
           >
-            Yogeeta
+            {Array.from("Yogeeta").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 40, rotateX: -90, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" },
+                }}
+                transition={{ type: "spring", damping: 12, stiffness: 200 }}
+                className="inline-block"
+              >
+                {char}
+              </motion.span>
+            ))}
           </motion.h2>
 
           {/* Typing */}
@@ -82,18 +100,20 @@ const About = () => {
 
           {/* BUTTON */}
           <motion.a
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.96 }}
+            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgb(255,255,255)" }}
+            whileTap={{ scale: 0.95 }}
             href="https://drive.google.com/file/d/1qt804WU_jXdQWWBBao2hHxx6olSzuSOX/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-block mt-10 px-10 py-4 rounded-full
-            text-white font-bold text-lg overflow-hidden"
+            className="relative inline-flex items-center justify-center mt-10 px-10 py-4 rounded-full
+            text-white font-extrabold text-lg overflow-hidden group cursor-none"
           >
-            {/* Glow */}
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500 blur-xl opacity-70" />
-            {/* Button */}
-            <span className="relative z-10 bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-4 rounded-full">
+            {/* Liquid Glow */}
+            <span className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:200%_0,0_0] bg-no-repeat transition-all duration-1000 group-hover:bg-[position:-100%_0,0_0] z-20 mix-blend-overlay pointer-events-none" />
+            {/* Base Glow */}
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 blur-xl opacity-80 group-hover:opacity-100 animate-pulse transition-opacity duration-300" />
+            {/* Button Surface */}
+            <span className="relative z-10 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 px-8 py-3 rounded-full flex items-center gap-2 shadow-[0_0_20px_rgba(236,72,153,0.5)] group-hover:shadow-[0_0_40px_rgba(236,72,153,0.9)] transition-all duration-300">
               DOWNLOAD RESUME
             </span>
           </motion.a>

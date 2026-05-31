@@ -8,43 +8,39 @@ import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import BlurBlob from './components/BlurBlob';
+import CustomCursor from "./components/CustomCursor";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const App = () => {
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
-    // <div className="bg-[#050414]">
+    <div className="relative w-full min-h-screen overflow-x-hidden bg-[#050414] text-white cursor-none">
+      <CustomCursor />
 
-    //    <BlurBlob position={{ top: '35%', left: '20%' }} size={{ width: '30%', height: '40%' }} />
+      {/* Blur Background Parallax */}
+      <motion.div style={{ y: backgroundY, position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <BlurBlob
+          position={{ top: "35%", left: "20%" }}
+          size={{ width: "30%", height: "40%" }}
+        />
+        <BlurBlob
+          position={{ top: "70%", left: "80%" }}
+          size={{ width: "25%", height: "35%" }}
+        />
+      </motion.div>
 
-    //   <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-      
-    //   <div className="relative pt-20">
-    //     <Navbar />
-    //     <About />
-    //     <Skills />
-    //     <Experience />
-    //     <Work />
-    //     <Education />
-    //     <Contact />
-    //     <Footer />
-    //   </div>
-
-    // </div>
-
-    <div className="relative w-full min-h-screen overflow-x-hidden bg-[#050414] text-white">
-
-      {/* Blur Background */}
-      <BlurBlob
-        position={{ top: "35%", left: "20%" }}
-        size={{ width: "30%", height: "40%" }}
-      />
-
-      {/* Grid Overlay */}
-      <div className="absolute inset-0 pointer-events-none 
+      {/* Grid Overlay Parallax */}
+      <motion.div
+        style={{ y: gridY }}
+        className="absolute inset-0 pointer-events-none 
         bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),
         linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]
         bg-[size:14px_24px]
         [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
-      </div>
+      </motion.div>
 
       {/* Main Content */}
       <div className="relative z-10 pt-20">
@@ -60,8 +56,6 @@ const App = () => {
 
     </div>
   );
-
-
 };
 
 export default App;

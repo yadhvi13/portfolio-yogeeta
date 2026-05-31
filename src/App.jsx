@@ -9,6 +9,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import BlurBlob from './components/BlurBlob';
 import CustomCursor from "./components/CustomCursor";
+import WhatsAppButton from "./components/WhatsAppButton";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
 
       {/* Main Content */}
       <div className="relative z-10 pt-20">
+        <WhatsAppButton />
         <Navbar />
         <About />
         <Skills />

@@ -36,7 +36,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32 px-[12vw] md:px-[7vw] lg:px-[20vw] group"
+      className="relative overflow-hidden py-32 px-4 sm:px-8 md:px-[7vw] lg:px-[20vw] group"
     >
       <ToastContainer />
        <div

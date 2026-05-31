@@ -9,7 +9,7 @@ const Work = () => {
   return (
     <section
       id="work"
-      className="relative py-32 px-[10vw] md:px-[7vw] lg:px-[12vw]"
+      className="relative py-32 px-4 sm:px-8 md:px-[7vw] lg:px-[12vw]"
     >
       {/* Soft ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-600/20 blur-[160px]" />

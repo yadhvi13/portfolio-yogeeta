@@ -18,7 +18,7 @@ const cardVariants = {
 const Skills = () => (
   <section
     id="skills"
-    className="relative py-24 px-[12vw] md:px-[7vw] lg:px-[18vw] font-sans 
+    className="relative py-24 px-4 sm:px-8 md:px-[7vw] lg:px-[18vw] font-sans 
     bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] overflow-hidden"
   >
     {/* Background Glow */}

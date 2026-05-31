@@ -9,8 +9,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-8 px-[7vw] md:px-[7vw] lg:px-[20vw] mt-20 md:mt-28 lg:mt-36"
-      
+      className="py-8 px-4 sm:px-8 md:px-[7vw] lg:px-[20vw] mt-20 md:mt-28 lg:mt-36"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 

@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative px-[8vw] md:px-[6vw] lg:px-[10vw] py-20">
+    <footer className="relative px-4 sm:px-8 md:px-[6vw] lg:px-[10vw] py-20">
       
       {/* subtle divider */}
       <div className="absolute top-0 left-0 w-full h-px bg-white/10" />

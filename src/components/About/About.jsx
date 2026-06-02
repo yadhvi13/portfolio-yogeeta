@@ -102,7 +102,7 @@ const About = () => {
           <motion.a
             whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgb(255,255,255)" }}
             whileTap={{ scale: 0.95 }}
-            href="https://drive.google.com/file/d/1qt804WU_jXdQWWBBao2hHxx6olSzuSOX/view?usp=sharing"
+            href="https://drive.google.com/file/d/1WOF3u7JoT0tZNf_VLy-_C5rr4LXc71cc/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="relative inline-flex items-center justify-center mt-10 px-10 py-4 rounded-full

@@ -191,18 +191,18 @@ export const SkillsInfo = [
       image: caretooth,
       tags: ["Next JS", "TailwindCSS", "Clerk", "Luicide React", "Shadcn"],
       github: "https://github.com/yadhvi13/caretooth",
-      webapp: "",
+      webapp: "https://caretooth.vercel.app/",
     },
-    {
-      id: 3,
-      title: "CodeHelp UI - Website Clone",
-      description:
-        "UI Clone of CodeHelp platform by Love Babbar using pure HTML, CSS, and JavaScript, focusing strongly on UI/UX precision and smooth animations. Recreated the dark-themed interface, navigation flow, hero section, and course showcase to closely resemble the original platform.Ensured responsive design, clean layouts, and fast performance without using any frameworks, demonstrating strong fundamentals in frontend development and motion-driven UI design.",
-      image: codehelp,
-      tags: ["HTML", "CSS", "Vanilla JS"],
-      github: "https://github.com/yadhvi13/CodeHelp-2.0",
-      webapp: "https://code-help-2-0.vercel.app/",
-    },
+    // {
+    //   id: 3,
+    //   title: "CodeHelp UI - Website Clone",
+    //   description:
+    //     "UI Clone of CodeHelp platform by Love Babbar using pure HTML, CSS, and JavaScript, focusing strongly on UI/UX precision and smooth animations. Recreated the dark-themed interface, navigation flow, hero section, and course showcase to closely resemble the original platform.Ensured responsive design, clean layouts, and fast performance without using any frameworks, demonstrating strong fundamentals in frontend development and motion-driven UI design.",
+    //   image: codehelp,
+    //   tags: ["HTML", "CSS", "Vanilla JS"],
+    //   github: "https://github.com/yadhvi13/CodeHelp-2.0",
+    //   webapp: "https://code-help-2-0.vercel.app/",
+    // },
     {
       id: 4,
       title: "Personal Portfolio",

@@ -37,7 +37,7 @@ import netflix from './assets/work_logo/netflix.png';
 import codehelp from './assets/work_logo/codehelp.png';
 import portfolio from './assets/work_logo/portfolio.png';
 import food from './assets/work_logo/food.png';
-
+import devcollab from './assets/work_logo/devcollab.png';
 
 
 export const SkillsInfo = [
@@ -204,7 +204,7 @@ export const SkillsInfo = [
     //   webapp: "https://code-help-2-0.vercel.app/",
     // },
     {
-      id: 4,
+      id: 3,
       title: "Personal Portfolio",
       description:
         "Developed a responsive and interactive portfolio using React.js, Tailwind CSS, and GSAP, implementing smooth animations and modern glassmorphism design to enhance user experience and visual appeal.The project highlights my passion for creating high-quality web interfaces and dynamic user experiences using modern front-end technologies.",
@@ -214,13 +214,13 @@ export const SkillsInfo = [
       webapp: "https://portfolio-yogeeta.vercel.app/",
     },
     {
-      id: 6,
-      title: "Real Time Food Delivery App",
+      id: 4,
+      title: "DevCollab - A Developer Collaboration Platform",
       description:
-        "Built a full-stack food delivery web app with a modern, responsive UI and real-time order tracking. Implemented features like user authentication, dynamic menu browsing, cart management, and secure checkout. Integrated Socket.io for live tracking updates (ETA, order status, rider movement) and optimized backend performance with MongoDB indexing. Focused on clean UI/UX, smooth animations, and cross-device responsiveness for a seamless user experience.",
-      image: food,
+        "Built a full-stack developer collaboration platform with a modern, responsive UI and real-time communication features. Implemented features like user authentication, dynamic project management, team collaboration tools, and secure data handling. Integrated Socket.io for live messaging and updates (notifications, file sharing, code reviews) and optimized backend performance with MongoDB indexing. Focused on clean UI/UX, smooth animations, and cross-device responsiveness for a seamless user experience.",
+      image: devcollab,
       tags: ["React JS", "Tailwind CSS", "Node JS", "Express JS", "MongoDB"],
-      github: "https://github.com/yadhvi13/RealTimeFoodDelivery",
-      webapp: "https://real-time-food-delivery-six.vercel.app/",
+      github: "https://github.com/yadhvi13/DevCollab-Project",
+      webapp: "https://dev-collab-project-three.vercel.app/",
     },
   ];  

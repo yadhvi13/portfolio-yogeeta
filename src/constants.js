@@ -38,6 +38,7 @@ import codehelp from './assets/work_logo/codehelp.png';
 import portfolio from './assets/work_logo/portfolio.png';
 import food from './assets/work_logo/food.png';
 import devcollab from './assets/work_logo/devcollab.png';
+import zepto from './assets/work_logo/zepto.png';
 
 
 export const SkillsInfo = [
@@ -222,5 +223,15 @@ export const SkillsInfo = [
       tags: ["React JS", "Tailwind CSS", "Node JS", "Express JS", "MongoDB"],
       github: "https://github.com/yadhvi13/DevCollab-Project",
       webapp: "https://dev-collab-project-three.vercel.app/",
+    },
+    {
+      id: 5,
+      title: "Zepto - A Modern E-commerce Platform",
+      description:
+        "Developed a feature-rich e-commerce platform with a modern, responsive UI and seamless user experience. Implemented core features like product browsing, shopping cart, user authentication, and secure payment processing. Utilized React.js for the frontend and Node.js with Express.js for the backend, ensuring optimal performance and scalability.",
+      image: zepto,
+      tags: ["React JS", "Tailwind CSS", "Node JS", "Express JS", "MongoDB"],
+      github: "https://github.com/yadhvi13/Zepto",
+      webapp: "https://zepto-smoky.vercel.app/",
     },
   ];  

@@ -28,7 +28,7 @@ const About = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1"
           >
             Hi, I am
-            Yogeeta
+            {/* Yogeeta */}
           </motion.h1>
 
           {/* Name */}

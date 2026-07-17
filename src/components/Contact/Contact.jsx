@@ -29,8 +29,16 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        toast.success("Message sent successfully ✨", { theme: "dark" });
-        form.current.reset();
+        toast.success("Message recorded ✨ Redirecting to WhatsApp...", { theme: "dark" });
+        
+        const whatsappNumber = "918744092297";
+        const whatsappText = `Hello Yogeeta, I am ${data.user_name} (${data.user_email}).\n\nSubject: ${data.subject}\nMessage: ${data.message}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappText)}`;
+        
+        setTimeout(() => {
+          window.location.href = whatsappUrl;
+          form.current.reset();
+        }, 1200);
       } else {
         toast.error("Something went wrong. Try again!", { theme: "dark" });
       }

@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiGlobe } from "react-icons/fi";
 import profileImage from "../../assets/yogeeta.jpg";
 
 const About = () => {
+  const [typedText, setTypedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const targetText = "YOGEETA";
+
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      setTypedText(targetText.slice(0, index + 1));
+      index++;
+      if (index >= targetText.length) {
+        clearInterval(intervalId);
+        setTimeout(() => setShowCursor(false), 2000);
+      }
+    }, 180);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <section
       id="about"
@@ -44,9 +62,14 @@ const About = () => {
             </span>
           </div>
 
-          {/* YOGEETA */}
+          {/* YOGEETA with Typewriter cursor */}
           <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] text-brand-cream leading-none tracking-tight select-none mb-6 relative">
-            YOGEETA
+            {typedText}
+            {showCursor && (
+              <span className="animate-blink text-brand-gold font-normal font-sans ml-1 text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] leading-none">
+                |
+              </span>
+            )}
             <span className="absolute -right-6 bottom-4 text-brand-gold text-3xl md:text-5xl">+</span>
           </h1>
 

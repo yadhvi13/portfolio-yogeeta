@@ -24,7 +24,7 @@ const ProjectCard = ({ project }) => {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 md:grayscale group-hover:grayscale-0"
         />
       </div>
 

@@ -43,5 +43,11 @@ html {
     .clip-path-custom-3 {
         clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 96%, 0 100%);
       }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .animate-blink {
+      animation: blink 0.8s step-end infinite;
+    }
   }
   

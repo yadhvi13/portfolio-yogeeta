@@ -35,16 +35,15 @@ const Navbar = () => {
   const handleMenuItemClick = (id) => {
     clickSound();
     setActiveSection(id);
+    setIsOpen(false); // Close menu immediately to unlock document scroll
 
-    const section = document.getElementById(id);
-    if (!section) return;
-
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    // Close menu AFTER scroll starts (mobile fix)
+    // Wait for DOM update/overflow reset before scrolling
     setTimeout(() => {
-      setIsOpen(false);
-    }, 120);
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 50);
   };
 
   const menuItems = [

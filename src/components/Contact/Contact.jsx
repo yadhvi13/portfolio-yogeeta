@@ -66,8 +66,8 @@ const Contact = () => {
       </motion.div>
 
       {/* Centered Glass Container */}
-      <div className="max-w-4xl mx-auto rounded-3xl p-8 sm:p-12 glass-card-dark shadow-2xl border border-white/10 relative z-10">
-        <div className="flex flex-col md:flex-row items-stretch gap-10 md:gap-12">
+      <div className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-5 sm:p-12 glass-card-dark shadow-2xl border border-white/10 relative z-10">
+        <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
           
           {/* Left Column: Contact details & editorial prompt */}
           <div className="w-full md:w-1/2 flex flex-col justify-between items-start">
@@ -86,7 +86,7 @@ const Contact = () => {
             <div className="flex flex-col gap-4 text-xs sm:text-sm font-semibold w-full">
               <div className="flex items-center gap-3 border-b border-white/10 pb-3">
                 <span className="text-brand-gold text-lg">📧</span>
-                <a href="mailto:yadhvi13@gmail.com" className="hover:text-brand-gold transition-colors cursor-none">yadhvi13@gmail.com</a>
+                <a href="mailto:yogeeta1312@gmail.com" className="hover:text-brand-gold transition-colors cursor-none">yogeeta1312@gmail.com</a>
               </div>
               <div className="flex items-center gap-3 border-b border-white/10 pb-3">
                 <span className="text-brand-gold text-lg">🔗</span>

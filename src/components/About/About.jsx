@@ -94,14 +94,14 @@ const About = () => {
           </div>
 
           {/* Action buttons */}
-          <div className="flex gap-4">
+          <div className="flex flex-row gap-3 items-center justify-center lg:justify-start w-full">
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://drive.google.com/file/d/1WOF3u7JoT0tZNf_VLy-_C5rr4LXc71cc/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-brand-gold text-brand-dark font-sans font-extrabold px-6 py-3 rounded-full shadow-lg hover:bg-[#c59f2a] transition-all cursor-none"
+              className="bg-brand-gold text-brand-dark font-sans font-extrabold px-3 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:bg-[#c59f2a] transition-all cursor-none text-[10px] sm:text-sm tracking-wider uppercase whitespace-nowrap"
             >
               DOWNLOAD RESUME
             </motion.a>
@@ -109,7 +109,7 @@ const About = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="#contact"
-              className="border border-brand-cream/40 text-brand-cream hover:bg-white/5 font-sans font-extrabold px-6 py-3 rounded-full transition-all cursor-none"
+              className="border border-brand-cream/40 text-brand-cream hover:bg-white/5 font-sans font-extrabold px-3 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all cursor-none text-[10px] sm:text-sm tracking-wider uppercase whitespace-nowrap"
             >
               LET'S TALK
             </motion.a>

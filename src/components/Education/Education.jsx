@@ -1,6 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import { education } from "../../constants";
 import { motion } from "framer-motion";
+
+const EducationCard = ({ edu }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const showReadMore = edu.desc.length > 110;
+  const displayDesc = isExpanded
+    ? edu.desc
+    : showReadMore
+    ? edu.desc.slice(0, 110) + "..."
+    : edu.desc;
+
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className={`relative ml-16 md:ml-0 w-full md:w-[45%] p-6 rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md shadow-lg hover:shadow-xl transition-all`}
+    >
+      {/* Header */}
+      <div className="flex items-start gap-4 mb-4">
+        <div className="w-12 h-12 rounded-xl overflow-hidden border border-brand-dark/10 bg-white flex-shrink-0 flex items-center justify-center">
+          <img
+            src={edu.img}
+            alt={edu.school}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-display font-extrabold text-brand-crimson leading-snug">
+            {edu.degree}
+          </h3>
+          <p className="text-xs sm:text-sm font-bold text-brand-dark/70 mt-0.5">
+            {edu.school}
+          </p>
+          
+          {/* Date Badge */}
+          <span className="inline-block mt-2 px-2.5 py-0.5 rounded border border-brand-gold/40 text-[10px] font-black bg-brand-gold/15 text-brand-crimson">
+            {edu.date}
+          </span>
+        </div>
+      </div>
+
+      {/* Grade */}
+      {edu.grade && (
+        <div className="inline-block mb-3 px-3 py-1 rounded-full border border-brand-gold bg-brand-cream text-brand-crimson text-xs font-black shadow-sm">
+          Grade: {edu.grade}
+        </div>
+      )}
+
+      {/* Description with read more */}
+      <p className="text-xs sm:text-sm text-brand-dark/85 leading-relaxed font-sans">
+        {displayDesc}
+        {showReadMore && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-brand-crimson font-extrabold ml-1.5 hover:text-brand-gold transition-colors inline-block cursor-none text-[11px] sm:text-xs"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        )}
+      </p>
+    </motion.div>
+  );
+};
 
 const Education = () => {
   return (
@@ -57,48 +120,7 @@ const Education = () => {
             </div>
 
             {/* Education Card */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className={`relative ml-16 md:ml-0 w-full md:w-[45%] p-6 rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md shadow-lg hover:shadow-xl transition-all`}
-            >
-              {/* Header */}
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl overflow-hidden border border-brand-dark/10 bg-white flex-shrink-0 flex items-center justify-center">
-                  <img
-                    src={edu.img}
-                    alt={edu.school}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-display font-extrabold text-brand-crimson leading-snug">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-xs sm:text-sm font-bold text-brand-dark/70 mt-0.5">
-                    {edu.school}
-                  </p>
-                  
-                  {/* Date Badge */}
-                  <span className="inline-block mt-2 px-2.5 py-0.5 rounded border border-brand-gold/40 text-[10px] font-black bg-brand-gold/15 text-brand-crimson">
-                    {edu.date}
-                  </span>
-                </div>
-              </div>
-
-              {/* Grade */}
-              {edu.grade && (
-                <div className="inline-block mb-3 px-3 py-1 rounded-full border border-brand-gold bg-brand-cream text-brand-crimson text-xs font-black shadow-sm">
-                  Grade: {edu.grade}
-                </div>
-              )}
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-brand-dark/85 leading-relaxed font-sans">
-                {edu.desc}
-              </p>
-            </motion.div>
+            <EducationCard edu={edu} />
           </motion.div>
         ))}
       </div>

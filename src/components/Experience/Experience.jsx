@@ -1,6 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { experiences } from "../../constants";
 import { motion } from "framer-motion";
+
+const ExperienceCard = ({ exp }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const showReadMore = exp.desc.length > 110;
+  const displayDesc = isExpanded
+    ? exp.desc
+    : showReadMore
+    ? exp.desc.slice(0, 110) + "..."
+    : exp.desc;
+
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className={`relative ml-16 md:ml-0 w-full md:w-[45%] p-6 rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md shadow-lg hover:shadow-xl transition-all`}
+    >
+      {/* Header */}
+      <div className="flex items-start gap-4 mb-4">
+        <div className="w-12 h-12 rounded-xl overflow-hidden border border-brand-dark/10 bg-white flex-shrink-0 flex items-center justify-center">
+          <img
+            src={exp.img}
+            alt={exp.company}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-display font-extrabold text-brand-crimson leading-snug">
+            {exp.role}
+          </h3>
+          <p className="text-sm font-bold text-brand-dark/70">
+            {exp.company}
+          </p>
+          
+          {/* Date Badge */}
+          <span className="inline-block mt-2 px-2.5 py-0.5 rounded border border-brand-gold/40 text-[10px] font-black uppercase tracking-wider bg-brand-gold/15 text-brand-crimson">
+            {exp.date}
+          </span>
+        </div>
+      </div>
+
+      {/* Description with read more */}
+      <p className="text-xs sm:text-sm text-brand-dark/85 leading-relaxed mb-5 font-sans">
+        {displayDesc}
+        {showReadMore && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-brand-crimson font-extrabold ml-1.5 hover:text-brand-gold transition-colors inline-block cursor-none text-[11px] sm:text-xs"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        )}
+      </p>
+
+      {/* Skills */}
+      <div>
+        <h5 className="text-xs font-sans font-black text-brand-crimson uppercase tracking-wider mb-2">
+          Skills:
+        </h5>
+        <div className="flex flex-wrap gap-1.5">
+          {exp.skills.map((skill, i) => (
+            <span
+              key={i}
+              className="px-2.5 py-0.5 rounded-full border border-brand-dark/10 text-[10px] font-extrabold uppercase bg-brand-gold/10 text-brand-dark"
+            >
+              {skill.trim()}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Experience = () => {
   return (
@@ -57,58 +130,7 @@ const Experience = () => {
             </div>
 
             {/* Experience Card */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className={`relative ml-16 md:ml-0 w-full md:w-[45%] p-6 rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md shadow-lg hover:shadow-xl transition-all`}
-            >
-              {/* Header */}
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl overflow-hidden border border-brand-dark/10 bg-white flex-shrink-0 flex items-center justify-center">
-                  <img
-                    src={exp.img}
-                    alt={exp.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-display font-extrabold text-brand-crimson leading-snug">
-                    {exp.role}
-                  </h3>
-                  <p className="text-sm font-bold text-brand-dark/70">
-                    {exp.company}
-                  </p>
-                  
-                  {/* Date Badge */}
-                  <span className="inline-block mt-2 px-2.5 py-0.5 rounded border border-brand-gold/40 text-[10px] font-black uppercase tracking-wider bg-brand-gold/15 text-brand-crimson">
-                    {exp.date}
-                  </span>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-brand-dark/85 leading-relaxed mb-5 font-sans">
-                {exp.desc}
-              </p>
-
-              {/* Skills */}
-              <div>
-                <h5 className="text-xs font-sans font-black text-brand-crimson uppercase tracking-wider mb-2">
-                  Skills:
-                </h5>
-                <div className="flex flex-wrap gap-1.5">
-                  {exp.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="px-2.5 py-0.5 rounded-full border border-brand-dark/10 text-[10px] font-extrabold uppercase bg-brand-gold/10 text-brand-dark"
-                    >
-                      {skill.trim()}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <ExperienceCard exp={exp} />
           </motion.div>
         ))}
       </div>

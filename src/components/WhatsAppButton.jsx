@@ -20,20 +20,14 @@ const WhatsAppButton = () => {
       whileTap={{ scale: 0.9 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
     >
-      {/* Liquid Glow Underlay */}
-      <span className="absolute inset-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.6)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:200%_0,0_0] bg-no-repeat transition-all duration-1000 group-hover:bg-[position:-100%_0,0_0] z-20 mix-blend-overlay rounded-full pointer-events-none" />
-      
-      {/* Pulsing Fierce Glow */}
-      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 rounded-full blur-xl opacity-70 group-hover:opacity-100 animate-pulse transition-opacity duration-300 pointer-events-none" />
-      
       {/* Button Surface */}
-      <span className="absolute inset-0 w-full h-full flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 via-emerald-600 to-teal-700 shadow-[0_0_20px_rgba(16,185,129,0.5)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.9)] border border-green-300/30">
-        <FaWhatsapp className="text-white text-3xl md:text-4xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+      <span className="absolute inset-0 w-full h-full flex items-center justify-center rounded-full bg-[#25D366] border border-white/25 shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.65)] transition-all">
+        <FaWhatsapp className="text-white text-3xl md:text-4xl" />
       </span>
 
       {/* Tooltip */}
-      <span className="absolute right-20 md:right-24 px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-[0_10px_30px_rgba(16,185,129,0.3)] whitespace-nowrap">
-        Let's Chat! 🔥
+      <span className="absolute right-20 md:right-24 px-4 py-2 bg-brand-cream/80 backdrop-blur-md text-brand-dark border border-brand-dark/10 rounded-xl font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-md whitespace-nowrap">
+        Let's Chat! 💬
       </span>
     </motion.a>
   );

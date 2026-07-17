@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from "framer-motion";
@@ -46,116 +45,104 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32 px-4 sm:px-8 md:px-[7vw] lg:px-[20vw] group"
+      className="relative bg-brand-crimson text-brand-cream py-24 px-4 sm:px-6 md:px-[7vw] lg:px-[12vw] overflow-hidden"
     >
       <ToastContainer />
-       <div
-  className="pointer-events-none absolute inset-0
-  opacity-0 group-hover:opacity-100
-  transition-opacity duration-700"
->
-      {/* 🌈 FLOATING GLOW ORBS */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-orange-600/30 rounded-full blur-[140px]" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-500/25 rounded-full blur-[140px]" />
-</div>
-      {/* HEADER */}
+      
+      {/* Background Glowing Gold Blur */}
+      <div className="absolute top-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-brand-gold/10 blur-[120px] pointer-events-none" />
+
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        className="text-center mb-20 relative z-10"
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16 relative z-10"
       >
-        <h2 className="text-5xl font-extrabold text-white tracking-wide">
-          Let’s Connect
+        <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-brand-cream uppercase">
+          LET'S CONNECT
         </h2>
-        <p className="text-gray-300 mt-6 max-w-xl mx-auto text-lg">
-          Have an idea, opportunity, or just want to say hi?
-          My inbox is always open.
-        </p>
+        <div className="w-20 h-[3px] bg-brand-gold mx-auto mt-3 rounded-full" />
       </motion.div>
 
-      {/* 💎 GLASS FORM CARD */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 mx-auto max-w-lg"
-      >
-        <div
-          className="relative rounded-3xl p-8
-          bg-white/10 backdrop-blur-2xl
-          border border-white/20
-          shadow-[0_30px_80px_-15px_rgba(239,68,68,0.6)]"
-        >
-          {/* Animated border glow */}
-          <div className="pointer-events-none absolute inset-0 rounded-3xl
-    bg-gradient-to-r from-orange-500/30 to-red-500/30
-    opacity-0 group-hover:opacity-100
-    transition duration-700 blur-xl" />
+      {/* Centered Glass Container */}
+      <div className="max-w-4xl mx-auto rounded-3xl p-8 sm:p-12 glass-card-dark shadow-2xl border border-white/10 relative z-10">
+        <div className="flex flex-col md:flex-row items-stretch gap-10 md:gap-12">
+          
+          {/* Left Column: Contact details & editorial prompt */}
+          <div className="w-full md:w-1/2 flex flex-col justify-between items-start">
+            <div>
+              <h3 className="font-display font-black text-3xl sm:text-4xl text-brand-gold leading-tight tracking-wide mb-5">
+                LET'S BUILD <br />
+                SOMETHING <br />
+                MEMORABLE.
+              </h3>
+              <p className="font-sans text-sm sm:text-base text-brand-cream/80 leading-relaxed max-w-xs mb-8">
+                Have an idea, project collaboration, or opportunity? My inbox is always open. Let's start a conversation.
+              </p>
+            </div>
 
-<div className="relative z-10">
-          <h3 className="text-2xl font-semibold text-white text-center mb-8">
-            Send me a message 🚀
-          </h3>
-
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            className="flex flex-col gap-5"
-          >
-            {["user_email", "user_name", "subject"].map((field, i) => (
-              <motion.input
-                key={i}
-                whileFocus={{ scale: 1.02 }}
-                type={field === "user_email" ? "email" : "text"}
-                name={field}
-                placeholder={
-                  field === "user_email"
-                    ? "Your Email"
-                    : field === "user_name"
-                    ? "Your Name"
-                    : "Subject"
-                }
-                required
-                className="w-full rounded-xl px-4 py-3 bg-white/5
-                border border-white/20 text-white
-                focus:outline-none focus:border-orange-400
-                focus:bg-white/10 transition"
-              />
-            ))}
-
-            <motion.textarea
-              whileFocus={{ scale: 1.02 }}
-              name="message"
-              rows="4"
-              placeholder="Your Message"
-              required
-              className="rounded-xl px-4 py-3 bg-white/5
-              border border-white/20 text-white
-              focus:outline-none focus:border-orange-400
-              focus:bg-white/10 transition"
-            />
-
-            {/* ✨ MAGIC BUTTON */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={isSending}
-              className="relative overflow-hidden mt-4 rounded-xl py-3
-              bg-gradient-to-r from-orange-500 to-red-500
-              font-semibold text-white"
-            >
-              <span className="relative z-10">
-                {isSending ? "Sending..." : "Send Message"}
-              </span>
-
-              {/* Button shine */}
-              <span className="absolute inset-0 bg-white/20 translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700" />
-            </motion.button>
-          </form>
+            {/* Info list */}
+            <div className="flex flex-col gap-4 text-xs sm:text-sm font-semibold w-full">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                <span className="text-brand-gold text-lg">📧</span>
+                <a href="mailto:yadhvi13@gmail.com" className="hover:text-brand-gold transition-colors cursor-none">yadhvi13@gmail.com</a>
+              </div>
+              <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                <span className="text-brand-gold text-lg">🔗</span>
+                <a href="https://github.com/yadhvi13" target="_blank" rel="noreferrer" className="hover:text-brand-gold transition-colors cursor-none">github.com/yadhvi13</a>
+              </div>
+              <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                <span className="text-brand-gold text-lg">📍</span>
+                <span className="text-brand-cream/80">Faridabad, Delhi NCR, India</span>
+              </div>
+            </div>
           </div>
+
+          {/* Right Column: Contact form with translucent inputs */}
+          <div className="w-full md:w-1/2">
+            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your Name"
+                required
+                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-brand-cream placeholder-brand-cream/40 focus:outline-none focus:border-brand-gold focus:bg-white/10 transition-all cursor-none"
+              />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email"
+                required
+                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-brand-cream placeholder-brand-cream/40 focus:outline-none focus:border-brand-gold focus:bg-white/10 transition-all cursor-none"
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-brand-cream placeholder-brand-cream/40 focus:outline-none focus:border-brand-gold focus:bg-white/10 transition-all cursor-none"
+              />
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Your Message"
+                required
+                className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-brand-cream placeholder-brand-cream/40 focus:outline-none focus:border-brand-gold focus:bg-white/10 transition-all cursor-none"
+              />
+
+              <button
+                type="submit"
+                disabled={isSending}
+                className="w-full mt-2 bg-brand-gold text-brand-dark font-sans font-extrabold rounded-full py-3.5 shadow-lg hover:bg-[#c59f2a] transition-all text-center tracking-widest uppercase cursor-none"
+              >
+                {isSending ? "SENDING..." : "SEND MESSAGE"}
+              </button>
+            </form>
+          </div>
+
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

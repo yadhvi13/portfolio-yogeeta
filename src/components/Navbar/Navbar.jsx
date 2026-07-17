@@ -60,9 +60,7 @@ const Navbar = () => {
       {/* SCROLL PROGRESS BAR */}
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className="fixed top-0 left-0 right-0 h-[2px]
-        bg-gradient-to-r from-orange-500 to-yellow-400
-        z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-brand-crimson z-[60] origin-left"
       />
 
       {/* NAVBAR */}
@@ -71,59 +69,55 @@ const Navbar = () => {
         px-4 sm:px-[7vw] lg:px-[18vw]
         transition-all duration-300
         ${isScrolled
-            ? "bg-white/5 backdrop-blur-2xl border-b border-white/10"
-            : "bg-transparent"
+            ? "bg-brand-cream/85 backdrop-blur-md border-b border-brand-dark/5 py-2 shadow-sm"
+            : "bg-transparent py-4"
           }`}
       >
-        <div className="flex justify-between items-center py-4 text-white">
+        <div className="flex justify-between items-center py-2 text-brand-dark">
           {/* LOGO */}
           <div
             onClick={clickSound}
-            className="text-lg font-semibold cursor-pointer"
+            className="flex items-center gap-2 text-xl font-display font-black cursor-pointer text-brand-dark"
           >
-            <span className="text-orange-500">&lt;</span>
-            Yogeeta
-            <span className="text-orange-500">/</span>
-            Developer
-            <span className="text-orange-500">&gt;</span>
+            <span className="text-brand-gold text-2xl font-bold animate-spin-slow">★</span>
+            <span className="text-brand-crimson tracking-wide">YOGEETA</span>
           </div>
 
           {/* DESKTOP MENU */}
-          <ul className="hidden md:flex gap-10 text-gray-300">
+          <ul className="hidden md:flex gap-4 text-brand-dark">
             {menuItems.map((item) => (
               <li key={item.id} className="relative">
                 <button
                   onClick={() => handleMenuItemClick(item.id)}
-                  className="hover:text-white transition"
+                  className={`font-sans font-extrabold text-xs tracking-widest uppercase transition-all px-3.5 py-1.5 rounded-full ${
+                    activeSection === item.id
+                      ? "bg-brand-gold/15 text-brand-crimson"
+                      : "hover:bg-brand-dark/5 text-brand-dark/80"
+                  }`}
                 >
                   {item.label}
                 </button>
-
-                {activeSection === item.id && (
-                  <span className="absolute left-0 -bottom-2 h-[2px] w-full
-                  bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full" />
-                )}
               </li>
             ))}
           </ul>
 
           {/* DESKTOP SOCIALS */}
-          <div className="hidden md:flex gap-5">
+          <div className="hidden md:flex gap-5 text-brand-dark">
             <a
               href="https://github.com/yadhvi13"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-orange-500"
+              className="hover:text-brand-crimson transition-colors"
             >
-              <FaGithub size={22} />
+              <FaGithub size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/yogeeta-752388331/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-orange-500"
+              className="hover:text-brand-crimson transition-colors"
             >
-              <FaLinkedin size={22} />
+              <FaLinkedin size={20} />
             </a>
           </div>
 
@@ -134,9 +128,9 @@ const Navbar = () => {
                 clickSound();
                 setIsOpen(!isOpen);
               }}
-              className="text-orange-500"
+              className="text-brand-dark"
             >
-              {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+              {isOpen ? <FiX size={26} /> : <FiMenu size={26} />}
             </button>
           </div>
         </div>
@@ -149,29 +143,30 @@ const Navbar = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35 }}
-              className="md:hidden overflow-hidden
-              bg-white/10 backdrop-blur-2xl
-              rounded-b-2xl border-t border-white/10"
+              className="md:hidden overflow-hidden bg-brand-cream/95 backdrop-blur-xl border border-brand-dark/10 rounded-xl mt-2 shadow-lg text-brand-dark"
             >
-              <ul className="flex flex-col items-center gap-6 py-8 text-gray-200">
+              <ul className="flex flex-col items-center gap-6 py-6 text-brand-dark">
                 {menuItems.map((item) => (
                   <li
                     key={item.id}
                     onClick={() => handleMenuItemClick(item.id)}
-                    className="text-lg cursor-pointer hover:text-white"
+                    className={`text-sm font-sans font-extrabold cursor-pointer hover:text-brand-crimson px-4 py-1.5 rounded-full ${
+                      activeSection === item.id ? "bg-brand-gold/15 text-brand-crimson" : ""
+                    }`}
                   >
                     {item.label}
                   </li>
                 ))}
 
-                <div className="flex gap-6 pt-4">
+                <div className="flex gap-6 pt-4 text-brand-dark border-t border-brand-dark/10 w-full justify-center">
                   <a
                     href="https://github.com/yadhvi13"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
+                    className="hover:text-brand-crimson"
                   >
-                    <FaGithub size={22}/>
+                    <FaGithub size={20}/>
                   </a>
 
                   <a
@@ -179,7 +174,8 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                  ><FaLinkedin size={22} />
+                    className="hover:text-brand-crimson"
+                  ><FaLinkedin size={20} />
                   </a>
                 </div>
               </ul>

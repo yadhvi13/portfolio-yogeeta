@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { education } from "../../constants";
 import { motion } from "framer-motion";
@@ -8,107 +6,65 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="relative overflow-hidden
-      py-20 md:py-32
-      px-4 sm:px-6 md:px-[7vw] lg:px-[16vw]"
+      className="relative py-24 pb-32 px-4 sm:px-6 md:px-[7vw] lg:px-[12vw] bg-brand-sand text-brand-dark overflow-hidden"
     >
-      {/* Academic glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2
-        w-[600px] md:w-[900px]
-        h-[400px] md:h-[500px]
-        bg-orange-600/20 blur-[160px]"
-      />
+      {/* Background decoration */}
+      <div className="absolute top-10 right-10 w-[200px] h-[200px] rounded-full bg-brand-crimson/5 blur-[90px] pointer-events-none" />
 
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        className="text-center mb-16 md:mb-24 relative z-10"
+        transition={{ duration: 0.6 }}
+        className="text-center mb-20 relative z-10"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-          Education
+        <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-brand-crimson uppercase">
+          EDUCATION
         </h2>
-        <p className="text-gray-300 mt-4 md:mt-6 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
-          A structured journey of learning, discipline, and continuous
-          intellectual growth.
+        <div className="w-20 h-[3px] bg-brand-gold mx-auto mt-3 rounded-full" />
+        <p className="text-brand-dark/80 mt-5 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-semibold">
+          My academic qualifications, degrees, and schooling history.
         </p>
       </motion.div>
 
       {/* Timeline */}
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-4xl mx-auto">
         {/* Spine */}
         <div
-          className="
-          absolute top-0 h-full
-          left-6 md:left-1/2
-          -translate-x-1/2
-          w-[2px]
-          bg-gradient-to-b from-orange-500/0 via-orange-500 to-orange-500/0"
+          className="absolute top-0 h-full left-6 md:left-1/2 w-[2px] -translate-x-1/2 bg-brand-gold/40"
         />
 
         {education.map((edu, index) => (
           <motion.div
             key={edu.id}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className={`
-              relative mb-16 md:mb-24 flex
-              justify-start md:${index % 2 === 0 ? "justify-start" : "justify-end"}
-            `}
+            className={`relative mb-16 flex w-full justify-start ${
+              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+            }`}
           >
             {/* Timeline Medal */}
             <div
-              className="
-              absolute left-6 md:left-1/2
-              -translate-x-1/2
-              w-12 h-12 md:w-16 md:h-16
-              rounded-full
-              bg-white/10 backdrop-blur-xl
-              border border-white/30
-              shadow-[0_0_30px_rgba(249,115,22,0.6)]
-              flex items-center justify-center z-20"
+              className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 border-brand-gold bg-brand-sand shadow-md flex items-center justify-center z-20"
             >
               <img
                 src={edu.img}
                 alt={edu.school}
-                className="w-7 h-7 md:w-10 md:h-10 rounded-full object-cover"
+                className="w-7 h-7 rounded-full object-cover border border-brand-dark/10"
               />
             </div>
 
             {/* Education Card */}
             <motion.div
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 180 }}
-              className={`
-                relative
-                ml-16 md:ml-0
-                w-full max-w-full sm:max-w-xl
-                p-6 md:p-8
-                rounded-3xl
-                bg-white/10 backdrop-blur-2xl
-                border border-white/20
-                shadow-[0_30px_80px_-15px_rgba(239,68,68,0.5)]
-                ${
-                  index % 2 === 0
-                    ? "md:ml-[52%]"
-                    : "md:mr-[52%]"
-                }
-              `}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className={`relative ml-16 md:ml-0 w-full md:w-[45%] p-6 rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md shadow-lg hover:shadow-xl transition-all`}
             >
-              {/* Hover gradient */}
-              <div
-                className="absolute inset-0 rounded-3xl
-                bg-gradient-to-r from-orange-500/20 to-red-500/20
-                opacity-0 hover:opacity-100 transition duration-700 blur-xl"
-              />
-
               {/* Header */}
-              <div className="flex items-center gap-4 mb-5 relative">
-                <div className="w-16 h-12 md:w-20 md:h-14 rounded-xl overflow-hidden bg-white">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl overflow-hidden border border-brand-dark/10 bg-white flex-shrink-0 flex items-center justify-center">
                   <img
                     src={edu.img}
                     alt={edu.school}
@@ -117,34 +73,41 @@ const Education = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg md:text-2xl font-bold text-white">
+                  <h3 className="text-lg font-display font-extrabold text-brand-crimson leading-snug">
                     {edu.degree}
                   </h3>
-                  <p className="text-gray-300 text-sm md:text-base">
+                  <p className="text-xs sm:text-sm font-bold text-brand-dark/70 mt-0.5">
                     {edu.school}
                   </p>
-                  <p className="text-xs md:text-sm text-gray-400 mt-1">
+                  
+                  {/* Date Badge */}
+                  <span className="inline-block mt-2 px-2.5 py-0.5 rounded border border-brand-gold/40 text-[10px] font-black bg-brand-gold/15 text-brand-crimson">
                     {edu.date}
-                  </p>
+                  </span>
                 </div>
               </div>
 
               {/* Grade */}
-              <div
-                className="inline-block mb-4 px-4 py-1 rounded-full
-                bg-white/10 border border-white/20
-                text-orange-300 text-xs md:text-sm font-medium"
-              >
-                Grade: {edu.grade}
-              </div>
+              {edu.grade && (
+                <div className="inline-block mb-3 px-3 py-1 rounded-full border border-brand-gold bg-brand-cream text-brand-crimson text-xs font-black shadow-sm">
+                  Grade: {edu.grade}
+                </div>
+              )}
 
               {/* Description */}
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="text-xs sm:text-sm text-brand-dark/85 leading-relaxed font-sans">
                 {edu.desc}
               </p>
             </motion.div>
           </motion.div>
         ))}
+      </div>
+
+      {/* 3. FLUID WAVY SEPARATOR BOTTOM (filled with brand-crimson) */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+        <svg className="relative block w-full h-[40px] md:h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+          <path className="text-brand-crimson" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,88.43,26.85,154.06,44.76,226.74,74,321.39,56.44Z" />
+        </svg>
       </div>
     </section>
   );

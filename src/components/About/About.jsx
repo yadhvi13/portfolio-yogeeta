@@ -1,152 +1,136 @@
-
 import React from "react";
-import ReactTypingEffect from "react-typing-effect";
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
+import { FiGlobe } from "react-icons/fi";
 import profileImage from "../../assets/yogeeta.jpg";
 
 const About = () => {
   return (
     <section
       id="about"
-      className="py-8 px-4 sm:px-8 md:px-[7vw] lg:px-[20vw] mt-20 md:mt-28 lg:mt-36"
+      className="relative pt-24 pb-28 px-4 sm:px-6 md:px-[7vw] lg:px-[12vw] bg-brand-crimson text-brand-cream overflow-hidden"
     >
-      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      {/* Background Decorative Gold Orbs */}
+      <div className="absolute top-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-brand-gold/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-[200px] h-[200px] rounded-full bg-brand-gold/10 blur-[90px] pointer-events-none" />
 
-        {/* LEFT CONTENT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="md:w-1/2 text-center md:text-left"
-        >
-          {/* Greeting */}
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1"
-          >
-            Hi, I am
-            {/* Yogeeta */}
-          </motion.h1>
+      {/* 1. TOP HEADER DECORATIVE BAR */}
+      <div className="flex flex-wrap justify-between items-center gap-4 pb-8 mb-12 border-b border-brand-cream/20">
+        {/* Left item */}
+        <div className="flex items-center gap-2 font-sans font-extrabold text-xs sm:text-sm tracking-widest text-brand-cream">
+          {/* Gold Star */}
+          <span className="text-brand-gold text-xl animate-spin-slow">★</span>
+          <span>FULL STACK & WEB DEVELOPER</span>
+        </div>
 
-          {/* Name */}
-          <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 flex
-            text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"
-            variants={{
-              hidden: { opacity: 1 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.1, delayChildren: 0.3 },
-              },
-            }}
-            initial="hidden"
-            animate="visible"
-          >
-            {Array.from("Yogeeta").map((char, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 40, rotateX: -90, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" },
-                }}
-                transition={{ type: "spring", damping: 12, stiffness: 200 }}
-                className="inline-block"
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.h2>
+        {/* Center Badge */}
+        <div className="px-4 py-1.5 rounded-full border border-brand-gold/40 font-sans font-extrabold text-xs tracking-widest text-brand-gold bg-[#6A1411]">
+          DEVELOPER PORTFOLIO
+        </div>
 
-          {/* Typing */}
-          <motion.h3
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55 }}
-            className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6"
-          >
-            <span className="text-white">I am a </span>
-            <span className="text-orange-500">
-              <ReactTypingEffect
-                text={[
-                  "Fullstack Developer",
-                  "Web Developer",
-                  "UI/UX Designer",
-                  "Coder",
-                ]}
-                speed={90}
-                eraseSpeed={50}
-                typingDelay={500}
-                eraseDelay={1800}
-              />
+        {/* Right Info */}
+        <div className="flex items-center gap-2 font-sans font-extrabold text-xs sm:text-sm tracking-widest text-brand-cream">
+          <span>CREATIVE CODE</span>
+        </div>
+      </div>
+
+      {/* 2. HERO CONTENT GRID */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 relative z-10">
+        {/* Left Column (Typography + Glassmorphism Card) */}
+        <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
+          {/* HELLO! I'M */}
+          <div className="flex items-center gap-4 mb-2">
+            <span className="font-serif-italic text-brand-gold text-4xl sm:text-5xl md:text-6xl font-normal select-none italic">
+              Hello! I'm
             </span>
-          </motion.h3>
+          </div>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+          {/* YOGEETA */}
+          <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] text-brand-cream leading-none tracking-tight select-none mb-6 relative">
+            YOGEETA
+            <span className="absolute -right-6 bottom-4 text-brand-gold text-3xl md:text-5xl">+</span>
+          </h1>
+
+          {/* Translucent Glassmorphism Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card p-6 rounded-2xl shadow-2xl max-w-md mb-8 select-none"
           >
-            I am a full-stack developer with over 2 years of experience in
-            building scalable web applications. Skilled in both front-end and
-            back-end development, I specialize in the MERN stack and modern
-            technologies to craft seamless user experiences and efficient,
-            reliable solutions.
-          </motion.p>
+            <p className="font-sans font-medium text-brand-cream/90 text-sm sm:text-base md:text-lg leading-relaxed">
+              I design and build dynamic web applications, coupling robust backend architectures with elegant, fluid frontend interfaces.
+            </p>
+          </motion.div>
 
-          {/* BUTTON */}
-          <motion.a
-            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgb(255,255,255)" }}
-            whileTap={{ scale: 0.95 }}
-            href="https://drive.google.com/file/d/1WOF3u7JoT0tZNf_VLy-_C5rr4LXc71cc/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center mt-10 px-10 py-4 rounded-full
-            text-white font-extrabold text-lg overflow-hidden group cursor-none"
-          >
-            {/* Liquid Glow */}
-            <span className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:200%_0,0_0] bg-no-repeat transition-all duration-1000 group-hover:bg-[position:-100%_0,0_0] z-20 mix-blend-overlay pointer-events-none" />
-            {/* Base Glow */}
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 blur-xl opacity-80 group-hover:opacity-100 animate-pulse transition-opacity duration-300" />
-            {/* Button Surface */}
-            <span className="relative z-10 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 px-8 py-3 rounded-full flex items-center gap-2 shadow-[0_0_20px_rgba(236,72,153,0.5)] group-hover:shadow-[0_0_40px_rgba(236,72,153,0.9)] transition-all duration-300">
+          {/* Location badge */}
+          <div className="flex items-center gap-2.5 font-sans font-extrabold text-xs sm:text-sm uppercase tracking-wider text-brand-cream/80 mb-8">
+            <FiGlobe className="text-lg text-brand-gold animate-pulse" />
+            <span>BASED IN FARIDABAD, INDIA</span>
+            <span className="text-brand-cream/40">|</span>
+            <span className="text-brand-gold">WORKING WORLDWIDE</span>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex gap-4">
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://drive.google.com/file/d/1WOF3u7JoT0tZNf_VLy-_C5rr4LXc71cc/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-brand-gold text-brand-dark font-sans font-extrabold px-6 py-3 rounded-full shadow-lg hover:bg-[#c59f2a] transition-all cursor-none"
+            >
               DOWNLOAD RESUME
-            </span>
-          </motion.a>
-        </motion.div>
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact"
+              className="border border-brand-cream/40 text-brand-cream hover:bg-white/5 font-sans font-extrabold px-6 py-3 rounded-full transition-all cursor-none"
+            >
+              LET'S TALK
+            </motion.a>
+          </div>
+        </div>
 
-        {/* RIGHT IMAGE */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="md:w-1/2 flex justify-center md:justify-end relative"
-        >
-          {/* Aura ring */}
-          <div className="absolute w-[22rem] h-[22rem] md:w-[34rem] md:h-[34rem]
-            rounded-full bg-orange-600/20 blur-[120px]" />
+        {/* Right Column (Rounded Crop inside Gold Dashed Ring) */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center relative py-12">
+          {/* Profile photo crop */}
+          <div className="relative">
+            {/* Outer dashed spinning ring */}
+            <div className="absolute inset-[-12px] rounded-full border-2 border-dashed border-brand-gold/50 animate-spin-slow pointer-events-none" />
 
-          <Tilt
-            tiltMaxAngleX={18}
-            tiltMaxAngleY={18}
-            scale={1.05}
-            transitionSpeed={1000}
-            gyroscope
-            className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[30rem] md:h-[30rem]
-            rounded-full border-4 border-orange-600"
-          >
-            <img
-              src={profileImage}
-              alt="Yogeeta"
-              className="w-full h-full rounded-full object-cover
-              shadow-[0_20px_50px_rgba(249,115,22,0.6)]"
-            />
-          </Tilt>
-        </motion.div>
+            {/* Main Picture Frame */}
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative z-10 w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] rounded-full overflow-hidden border-[4px] border-brand-gold shadow-[0_20px_50px_rgba(0,0,0,0.4)] bg-brand-dark"
+            >
+              <img
+                src={profileImage}
+                alt="Yogeeta"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </motion.div>
+          </div>
+
+          {/* Floating gold leaf/particle decorations (SVG) */}
+          <svg className="w-8 h-8 text-brand-gold/60 absolute top-8 right-16 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L14.39 8.26L21 9.27L16.2 13.97L17.33 20.5L12 17.27L6.67 20.5L7.8 13.97L3 9.27L9.61 8.26L12 2Z" />
+          </svg>
+          <svg className="w-6 h-6 text-brand-gold/40 absolute bottom-12 left-12 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L14.39 8.26L21 9.27L16.2 13.97L17.33 20.5L12 17.27L6.67 20.5L7.8 13.97L3 9.27L9.61 8.26L12 2Z" />
+          </svg>
+        </div>
+      </div>
+
+      {/* 3. FLUID WAVY SEPARATOR BOTTOM (filled with brand-sand) */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+        <svg className="relative block w-full h-[50px] md:h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+          <path className="text-brand-sand" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,88.43,26.85,154.06,44.76,226.74,74,321.39,56.44Z" />
+        </svg>
       </div>
     </section>
   );

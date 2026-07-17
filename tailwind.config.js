@@ -6,6 +6,20 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"DM Serif Display"', 'serif'],
+        'serif-italic': ['"Playfair Display"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      colors: {
+        brand: {
+          crimson: '#8B1E1A',
+          sand: '#EADBC8',
+          cream: '#FAF6F0',
+          gold: '#D4AF37',
+          dark: '#2C1110',
+        }
+      },
       keyframes: {
         blob: {
           '0%': { transform: 'scale(1)' },

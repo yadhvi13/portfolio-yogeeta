@@ -1,104 +1,84 @@
-
 import React, { useState } from "react";
 import { projects } from "../../constants";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-const ProjectCard = ({ project, index, setActiveProject }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { left, top } = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - left,
-      y: e.clientY - top,
-    });
-  };
+const ProjectCard = ({ project }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const showReadMore = project.description.length > 90;
+  const displayDesc = isExpanded
+    ? project.description
+    : showReadMore
+    ? project.description.slice(0, 90) + "..."
+    : project.description;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      onMouseMove={handleMouseMove}
-      className={`flex flex-col lg:flex-row ${
-        index % 2 === 0 ? "" : "lg:flex-row-reverse"
-      } gap-14 items-center relative group`}
+      className="group glass-card-light p-5 rounded-2xl shadow-lg border border-white/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden relative z-10"
     >
-      {/* Spotlight Glow */}
-      <div
-        className="pointer-events-none absolute -inset-8 rounded-[3rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
-        style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x + 32}px ${mousePosition.y + 32}px, rgba(249,115,22,0.15), transparent 40%)`,
-        }}
-      />
-
-      {/* IMAGE (BIG & WIDE) */}
-      <div className="w-full lg:w-[58%] relative z-10">
-        <div
-          onClick={() => setActiveProject(project)}
-          className="relative cursor-pointer rounded-3xl overflow-hidden
-          bg-white/10 backdrop-blur-xl
-          border border-white/20
-          shadow-[0_30px_90px_-20px_rgba(239,68,68,0.55)]"
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-[300px] lg:h-[380px] object-cover hover:scale-110 transition duration-700"
-          />
-        </div>
+      {/* Image Container */}
+      <div className="relative rounded-xl overflow-hidden border border-brand-dark/10 bg-brand-crimson/5 aspect-[16/10] mb-5">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 grayscale group-hover:grayscale-0"
+        />
       </div>
 
-      {/* CONTENT */}
-      <div className="w-full lg:w-[42%] relative z-10">
-        <h3 className="text-3xl font-bold text-white mb-4">
-          {project.title}
-        </h3>
+      {/* Content Container */}
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Title */}
+          <h3 className="font-display font-black text-xl text-brand-crimson tracking-wide uppercase mb-1">
+            {project.title}
+          </h3>
+          
+          {/* Category / Tags */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.tags.map((tag, i) => (
+              <span key={i} className="text-[10px] font-extrabold tracking-wider uppercase bg-brand-gold/15 text-brand-crimson px-2.5 py-0.5 border border-brand-gold/25 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
 
-        <p className="text-gray-300 mb-6 leading-relaxed">
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {project.tags.map((tag, i) => (
-            <span
-              key={i}
-              className="px-3 py-1 text-sm rounded-full
-              bg-white/10 border border-white/20 text-gray-200"
-            >
-              {tag}
-            </span>
-          ))}
+          {/* Short description with read more toggle */}
+          <p className="font-sans text-xs sm:text-sm text-brand-dark/85 leading-relaxed mb-6">
+            {displayDesc}
+            {showReadMore && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-brand-crimson font-extrabold ml-1.5 hover:text-brand-gold transition-colors inline-block cursor-none text-[11px] sm:text-xs"
+              >
+                {isExpanded ? "Read Less" : "Read More"}
+              </button>
+            )}
+          </p>
         </div>
 
-        <div className="flex gap-4">
+        {/* Action Footer */}
+        <div className="flex justify-between items-center pt-4 border-t border-brand-dark/10">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl
-            bg-white/10 border border-white/20
-            text-white hover:bg-white/20 transition cursor-none"
+            className="font-sans font-extrabold text-xs text-brand-crimson hover:text-brand-gold transition-colors flex items-center gap-1 cursor-none"
           >
-            View Code
+            <span>VIEW CODE</span>
+            <span>↗</span>
           </a>
-          
-          <motion.a
-            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgb(255,255,255)" }}
-            whileTap={{ scale: 0.95 }}
+
+          <a
             href={project.webapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center px-6 py-3 rounded-xl
-            text-white font-bold overflow-hidden group/btn cursor-none"
+            className="w-9 h-9 rounded-full bg-brand-crimson hover:bg-brand-gold text-brand-cream hover:text-brand-dark flex items-center justify-center shadow-md hover:scale-105 transition-all cursor-none"
           >
-            <span className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-[position:200%_0,0_0] bg-no-repeat transition-all duration-1000 group-hover/btn:bg-[position:-100%_0,0_0] z-20 mix-blend-overlay pointer-events-none" />
-            <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 blur-md opacity-80 group-hover/btn:opacity-100 animate-pulse transition-opacity duration-300" />
-            <span className="relative z-10 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_0_20px_rgba(249,115,22,0.5)] group-hover/btn:shadow-[0_0_30px_rgba(249,115,22,0.9)] transition-all duration-300">
-              View Live
-            </span>
-          </motion.a>
+            <span className="text-base font-bold">→</span>
+          </a>
         </div>
       </div>
     </motion.div>
@@ -106,86 +86,35 @@ const ProjectCard = ({ project, index, setActiveProject }) => {
 };
 
 const Work = () => {
-  const [activeProject, setActiveProject] = useState(null);
-
   return (
     <section
       id="work"
-      className="relative py-32 px-4 sm:px-8 md:px-[7vw] lg:px-[12vw]"
+      className="relative pt-20 pb-28 px-4 sm:px-6 md:px-[7vw] lg:px-[12vw] bg-brand-sand text-brand-dark overflow-hidden"
     >
-      {/* Soft ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-orange-600/20 blur-[160px]" />
+      {/* Background decoration */}
+      <div className="absolute bottom-12 left-1/4 w-[300px] h-[300px] rounded-full bg-brand-gold/5 blur-[90px] pointer-events-none" />
 
       {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-24 relative z-10"
-      >
-        <h2 className="text-5xl font-extrabold text-white">
-          Selected Projects
+      <div className="flex flex-col items-center mb-16 relative z-10">
+        <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-brand-crimson uppercase text-center">
+          SELECTED WORK
         </h2>
-        <p className="text-gray-300 mt-6 max-w-3xl mx-auto text-lg">
-          Real-world applications I’ve designed and built — focusing on
-          performance, scalability, and clean user experience.
-        </p>
-      </motion.div>
+        <div className="w-20 h-[3px] bg-brand-gold mt-4 rounded-full" />
+      </div>
 
-      {/* PROJECT LIST */}
-      <div className="flex flex-col gap-24 relative z-10">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} setActiveProject={setActiveProject} />
+      {/* PROJECT GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
 
-      {/* MODAL (OPTIONAL DETAIL VIEW) */}
-      <AnimatePresence>
-        {activeProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl
-            flex items-center justify-center px-4"
-            onClick={() => setActiveProject(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.92, y: 40 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.92, y: 40 }}
-              transition={{ duration: 0.4 }}
-              onClick={(e) => e.stopPropagation()}
-              className="max-w-4xl w-full rounded-3xl
-              bg-white/10 backdrop-blur-2xl
-              border border-white/20
-              shadow-[0_40px_120px_-20px_rgba(239,68,68,0.7)]
-              p-8"
-            >
-              <button
-                onClick={() => setActiveProject(null)}
-                className="absolute top-4 right-6 text-4xl text-white"
-              >
-                ×
-              </button>
-
-              <img
-                src={activeProject.image}
-                alt={activeProject.title}
-                className="w-full rounded-2xl mb-6"
-              />
-
-              <h3 className="text-3xl font-bold text-white mb-4">
-                {activeProject.title}
-              </h3>
-
-              <p className="text-gray-300 mb-6">
-                {activeProject.description}
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* 3. FLUID WAVY SEPARATOR BOTTOM (filled with brand-cream) */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+        <svg className="relative block w-full h-[40px] md:h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+          <path className="text-brand-cream" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,88.43,26.85,154.06,44.76,226.74,74,321.39,56.44Z" />
+        </svg>
+      </div>
     </section>
   );
 };

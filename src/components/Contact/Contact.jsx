@@ -2,12 +2,13 @@ import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
 
@@ -19,35 +20,60 @@ const Contact = () => {
       message: formData.get("message"),
     };
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      if (response.ok) {
-        toast.success("Message recorded ✨ Redirecting to WhatsApp...", { theme: "dark" });
-        
-        const whatsappNumber = "918744092297";
-        const whatsappText = `Hello Yogeeta, I am ${data.user_name} (${data.user_email}).\n\nSubject: ${data.subject}\nMessage: ${data.message}`;
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappText)}`;
-        
-        setTimeout(() => {
-          window.location.href = whatsappUrl;
-          form.current.reset();
-        }, 1200);
-      } else {
-        toast.error("Something went wrong. Try again!", { theme: "dark" });
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to connect to server.", { theme: "dark" });
-    } finally {
-      setIsSending(false);
+    if (!serviceId || serviceId.includes("your_") || !templateId || !publicKey) {
+      console.warn("EmailJS credentials are not configured. Falling back to WhatsApp direct redirect.");
+      toast.warning("Email configuration missing. Redirecting to WhatsApp...", { theme: "dark" });
+      
+      const whatsappNumber = "918744092297";
+      const whatsappText = `Hello Yogeeta, I am ${data.user_name} (${data.user_email}).\n\nSubject: ${data.subject}\nMessage: ${data.message}`;
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappText)}`;
+      
+      setTimeout(() => {
+        window.location.href = whatsappUrl;
+        form.current.reset();
+        setIsSending(false);
+      }, 1200);
+      return;
     }
+
+    emailjs
+      .sendForm(serviceId, templateId, form.current, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          toast.success("Message sent successfully! ✨ Redirecting to WhatsApp...", { theme: "dark" });
+          
+          const whatsappNumber = "918744092297";
+          const whatsappText = `Hello Yogeeta, I am ${data.user_name} (${data.user_email}).\n\nSubject: ${data.subject}\nMessage: ${data.message}`;
+          const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappText)}`;
+          
+          setTimeout(() => {
+            window.location.href = whatsappUrl;
+            form.current.reset();
+          }, 1200);
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          toast.error("Failed to send email. Redirecting to WhatsApp...", { theme: "dark" });
+          
+          const whatsappNumber = "918744092297";
+          const whatsappText = `Hello Yogeeta, I am ${data.user_name} (${data.user_email}).\n\nSubject: ${data.subject}\nMessage: ${data.message}`;
+          const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappText)}`;
+          
+          setTimeout(() => {
+            window.location.href = whatsappUrl;
+            form.current.reset();
+          }, 1200);
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
